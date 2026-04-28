@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__d46b800d-4b2c-482f-aac8-cb38245455a6__get_metadata",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+    ]
+  }
+}
