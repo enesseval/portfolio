@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "logo": "@ Code by Enes",
+    "tagline": "Passionate Creative Designer and Developer, dedicated to crafting innovative solutions and exceptional digital experiences through modern technologies"
+  },
+  "about": {
+    "bio": "Driven by curiosity and a love for design, I create simple, functional, and visually striking digital experiences. As a developer, I'm always learning and exploring new ideas.",
+    "secondary": "The fusion of my passion for design, development, and seamless user experiences places me at the intersection of creativity and technology in the digital world.",
+    "cta": "More about me"
+  },
+  "works": {
+    "heading": "Impressive Works",
+    "description": "HERE'S A SELECTION OF PROJECTS THAT SHOWCASE MY PASSION FOR DESIGN AND DEVELOPMENT, REFLECTING CREATIVITY AND INNOVATION.",
+    "explore": "Explore more",
+    "p1": "E-Commerce Platform",
+    "p2": "SaaS Dashboard",
+    "p3": "AI Chat Application",
+    "p4": "Design System"
+  },
+  "contact": {
+    "tagline": "That's all for now.",
+    "heading1": "Got a project in mind?",
+    "heading2": "Let's talk",
+    "cta": "Get in touch",
+    "emailLabel": "Email",
+    "phoneLabel": "Phone"
+  },
+  "footer": {
+    "tagline": "your friendly chaos creator"
+  }
+}

@@ -1,0 +1,136 @@
+"use client";
+
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import FloatingNav from "./FloatingNav";
+
+export default function HeroSection() {
+  const t = useTranslations("hero");
+
+  return (
+    <section className="relative w-full min-h-screen overflow-hidden flex flex-col">
+
+      {/* Full-screen background photo */}
+      <Image
+        src="/medwadw.jpg"
+        alt="Enes"
+        fill
+        priority
+        className="object-cover object-center"
+        style={{ zIndex: 0 }}
+      />
+
+      {/* Dark gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0.10) 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.80) 100%)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Film grain */}
+      <div
+        className="absolute inset-0 opacity-20 pointer-events-none"
+        style={{
+          zIndex: 2,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "128px 128px",
+        }}
+      />
+
+      {/* Top header */}
+      <div
+        className="relative flex items-start justify-between w-full"
+        style={{ zIndex: 10, padding: "37px clamp(24px, 4vw, 56px) 0" }}
+      >
+        <span
+          className="text-white shrink-0"
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 500,
+            fontSize: "clamp(14px, 1.04vw, 20px)",
+            lineHeight: "24px",
+          }}
+        >
+          {t("logo")}
+        </span>
+
+        {/* Tagline — always visible, wraps on small screens */}
+        <p
+          className="text-white/75 text-right"
+          style={{
+            fontFamily: "var(--font-inter)",
+            fontWeight: 300,
+            fontSize: "clamp(11px, 1.04vw, 20px)",
+            lineHeight: "1.5",
+            maxWidth: "clamp(160px, 31vw, 600px)",
+          }}
+        >
+          {t("tagline")}
+        </p>
+      </div>
+
+      {/* Spacer */}
+      <div className="flex-1" style={{ zIndex: 3 }} />
+
+      {/* Arrow circle — visible on lg+, hidden on mobile */}
+      <a
+        href="#works"
+        className="absolute lg:flex hidden items-center justify-center rounded-full border border-white/50 hover:bg-white/10 transition-colors duration-300 group"
+        style={{
+          zIndex: 10,
+          right: "clamp(24px, 2.9vw, 56px)",
+          top: "38%",
+          width: "clamp(100px, 7.3vw, 141px)",
+          height: "clamp(100px, 7.3vw, 141px)",
+        }}
+      >
+        <svg
+          className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth={1.5}
+          viewBox="0 0 24 24"
+          style={{ width: "clamp(22px, 1.9vw, 36px)", height: "clamp(22px, 1.9vw, 36px)" }}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+
+      {/* Marquee title */}
+      <div
+        className="relative w-full overflow-hidden"
+        style={{ zIndex: 10, paddingBottom: "clamp(60px, 8vw, 96px)" }}
+      >
+        <div className="flex whitespace-nowrap animate-marquee">
+          {[0, 1].map((i) => (
+            <span
+              key={i}
+              className="text-white shrink-0"
+              style={{
+                fontFamily: "var(--font-inter)",
+                fontWeight: 500,
+                fontSize: "clamp(52px, 15.6vw, 300px)",
+                lineHeight: 1.21,
+                paddingRight: "clamp(28px, 4vw, 80px)",
+              }}
+            >
+              Creative Developer &amp;&nbsp;&nbsp;Designer&nbsp;&nbsp;✦
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Floating nav — always visible */}
+      <div
+        className="absolute left-1/2 -translate-x-1/2"
+        style={{ zIndex: 20, bottom: "clamp(14px, 2vw, 28px)" }}
+      >
+        <FloatingNav />
+      </div>
+    </section>
+  );
+}

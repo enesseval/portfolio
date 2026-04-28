@@ -2,7 +2,11 @@
   "permissions": {
     "allow": [
       "mcp__d46b800d-4b2c-482f-aac8-cb38245455a6__get_metadata",
-      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)"
+      "Bash(npx create-next-app@latest . --typescript --tailwind --eslint --app --no-src-dir --import-alias \"@/*\" --yes)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell(Stop-Process -Id 23628 -Force -ErrorAction SilentlyContinue)"
     ]
   }
 }

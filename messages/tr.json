@@ -1,0 +1,31 @@
+{
+  "hero": {
+    "logo": "@ Code by Enes",
+    "tagline": "Tutkulu Kreatif Tasarımcı ve Geliştirici — yenilikçi çözümler ve modern teknolojilerle olağanüstü dijital deneyimler üretmeye adanmış."
+  },
+  "about": {
+    "bio": "Merak ve tasarım sevgisiyle beslenerek sade, işlevsel ve görsel açıdan çarpıcı dijital deneyimler yaratıyorum. Geliştirici olarak her gün öğreniyor, yeni fikirler keşfediyorum.",
+    "secondary": "Tasarım, geliştirme ve sorunsuz kullanıcı deneyimlerine duyduğum tutku, beni dijital dünyada yaratıcılık ile teknolojinin kesişim noktasına taşıyor.",
+    "cta": "Hakkımda daha fazla"
+  },
+  "works": {
+    "heading": "Öne Çıkan Çalışmalar",
+    "description": "TASARIM VE GELİŞTİRMEYE OLAN TUTKUMU YANSITAN, YARATICILIK VE YENİLİĞİ ÖN PLANA ÇIKARAN SEÇME PROJELER.",
+    "explore": "Daha fazla keşfet",
+    "p1": "E-Ticaret Platformu",
+    "p2": "SaaS Paneli",
+    "p3": "Yapay Zeka Sohbet Uygulaması",
+    "p4": "Tasarım Sistemi"
+  },
+  "contact": {
+    "tagline": "Şimdilik bu kadar.",
+    "heading1": "Aklında bir proje mi var?",
+    "heading2": "Konuşalım",
+    "cta": "İletişime geç",
+    "emailLabel": "E-posta",
+    "phoneLabel": "Telefon"
+  },
+  "footer": {
+    "tagline": "senin dost canlısı kaos yaratıcın"
+  }
+}
