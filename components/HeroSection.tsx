@@ -61,7 +61,13 @@ export default function HeroSection() {
       {/* Top header */}
       <div
         className="relative flex items-start justify-between w-full"
-        style={{ zIndex: 10, padding: "37px clamp(12px, 1vw, 32px) 0" }}
+        style={{
+          zIndex: 10,
+          paddingTop: "calc(37px + env(safe-area-inset-top))",
+          paddingLeft: "clamp(12px, 1vw, 32px)",
+          paddingRight: "clamp(12px, 1vw, 32px)",
+          paddingBottom: 0,
+        }}
       >
         <span
           className="text-white shrink-0 text-center"
