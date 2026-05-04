@@ -1,7 +1,23 @@
 {
   "hero": {
-    "logo": "@ Code by Enes",
-    "tagline": "Tutkulu Kreatif Tasarımcı ve Geliştirici — yenilikçi çözümler ve modern teknolojilerle olağanüstü dijital deneyimler üretmeye adanmış."
+    "logoPrefix": "@ Code by",
+    "tagline": "Yapay zeka destekli web uygulamaları & dijital ürünler geliştiriyorum — karmaşık fikirleri sade, modern deneyimlere dönüştürüyorum.",
+    "marquee": "Kreatif Geliştirici & Tasarımcı"
+  },
+  "aboutMe": {
+    "label": "Hakkımda",
+    "name": "Enes Seval",
+    "role": "Kreatif Geliştirici & Tasarımcı",
+    "available": "Yeni projeler için müsaitim",
+    "downloadCv": "CV İndir",
+    "bio": "Türkiye'de yaşayan, merak ve yapma isteğiyle beslenen bir geliştirici ve tasarımcıyım. Yapay zeka destekli web uygulamaları ve dijital ürünler üzerinde çalışıyorum — karmaşık fikirleri sade, sezgisel deneyimlere dönüştürüyorum.",
+    "bio2": "Tasarım anlayışı ve mühendislik birikimimi bir araya getirerek girişimlerin ve şirketlerin dijital vizyonlarını hayata geçirmelerine yardımcı oluyorum — hızlı, ölçeklenebilir ve piksel mükemmelliğinde.",
+    "stack": "Teknoloji Yığını",
+    "services": "Neler Yapıyorum",
+    "s1": "Full-stack web geliştirme",
+    "s2": "Yapay zeka destekli uygulama & entegrasyon",
+    "s3": "UI/UX tasarım & prototipleme",
+    "s4": "Freelance danışmanlık & hızlı MVP"
   },
   "about": {
     "bio": "Merak ve tasarım sevgisiyle beslenerek sade, işlevsel ve görsel açıdan çarpıcı dijital deneyimler yaratıyorum. Geliştirici olarak her gün öğreniyor, yeni fikirler keşfediyorum.",
@@ -11,6 +27,7 @@
   "works": {
     "heading": "Öne Çıkan Çalışmalar",
     "description": "TASARIM VE GELİŞTİRMEYE OLAN TUTKUMU YANSITAN, YARATICILIK VE YENİLİĞİ ÖN PLANA ÇIKARAN SEÇME PROJELER.",
+    "soon": "Hazırlanıyor",
     "explore": "Daha fazla keşfet",
     "p1": "E-Ticaret Platformu",
     "p2": "SaaS Paneli",

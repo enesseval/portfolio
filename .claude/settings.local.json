@@ -6,7 +6,8 @@
       "Bash(npm install *)",
       "Bash(npm run *)",
       "mcp__Claude_Preview__preview_start",
-      "PowerShell(Stop-Process -Id 23628 -Force -ErrorAction SilentlyContinue)"
+      "PowerShell(Stop-Process -Id 23628 -Force -ErrorAction SilentlyContinue)",
+      "Bash(npx tsc *)"
     ]
   }
 }

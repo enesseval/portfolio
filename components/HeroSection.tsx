@@ -1,11 +1,28 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import FloatingNav from "./FloatingNav";
 
 export default function HeroSection() {
   const t = useTranslations("hero");
+
+  const copy1Ref  = useRef<HTMLSpanElement>(null);
+  const trackRef  = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const measure = () => {
+      if (copy1Ref.current && trackRef.current) {
+        // scrollWidth gives the full rendered width including padding
+        const w = copy1Ref.current.scrollWidth;
+        trackRef.current.style.setProperty("--shift", `-${w}px`);
+      }
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden flex flex-col">
@@ -44,10 +61,10 @@ export default function HeroSection() {
       {/* Top header */}
       <div
         className="relative flex items-start justify-between w-full"
-        style={{ zIndex: 10, padding: "37px clamp(24px, 4vw, 56px) 0" }}
+        style={{ zIndex: 10, padding: "37px clamp(12px, 1vw, 32px) 0" }}
       >
         <span
-          className="text-white shrink-0"
+          className="text-white shrink-0 text-center"
           style={{
             fontFamily: "var(--font-inter)",
             fontWeight: 500,
@@ -55,17 +72,23 @@ export default function HeroSection() {
             lineHeight: "24px",
           }}
         >
-          {t("logo")}
+          @ Code by{" "}
+          <a
+            href="mailto:info@enesseval.com"
+            className="name-gradient"
+            style={{ fontSize: "clamp(26px, 2.2vw, 42px)", lineHeight: 1 }}
+          >
+            Enes
+          </a>
         </span>
 
-        {/* Tagline — always visible, wraps on small screens */}
         <p
           className="text-white/75 text-right"
           style={{
             fontFamily: "var(--font-inter)",
             fontWeight: 300,
             fontSize: "clamp(11px, 1.04vw, 20px)",
-            lineHeight: "1.5",
+            lineHeight: "1.55",
             maxWidth: "clamp(160px, 31vw, 600px)",
           }}
         >
@@ -76,10 +99,11 @@ export default function HeroSection() {
       {/* Spacer */}
       <div className="flex-1" style={{ zIndex: 3 }} />
 
-      {/* Arrow circle — visible on lg+, hidden on mobile */}
+      {/* ── Arrow button — desktop only, goes to #works ── */}
       <a
         href="#works"
-        className="absolute lg:flex hidden items-center justify-center rounded-full border border-white/50 hover:bg-white/10 transition-colors duration-300 group"
+        aria-label="View works"
+        className="arrow-btn absolute lg:flex hidden items-center justify-center rounded-full border border-white/50 transition-all duration-300 group hover:border-white hover:bg-white/5"
         style={{
           zIndex: 10,
           right: "clamp(24px, 2.9vw, 56px)",
@@ -88,8 +112,9 @@ export default function HeroSection() {
           height: "clamp(100px, 7.3vw, 141px)",
         }}
       >
+        {/* Arrow icon */}
         <svg
-          className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+          className="arrow-icon text-white relative z-10"
           fill="none"
           stroke="currentColor"
           strokeWidth={1.5}
@@ -100,31 +125,51 @@ export default function HeroSection() {
         </svg>
       </a>
 
-      {/* Marquee title */}
+      {/* ── Marquee ──
+           JS measures copy A's exact pixel width → sets --shift.
+           Animation translates by exactly that amount → seamless reset.
+      ── */}
       <div
         className="relative w-full overflow-hidden"
         style={{ zIndex: 10, paddingBottom: "clamp(60px, 8vw, 96px)" }}
       >
-        <div className="flex whitespace-nowrap animate-marquee">
-          {[0, 1].map((i) => (
-            <span
-              key={i}
-              className="text-white shrink-0"
-              style={{
-                fontFamily: "var(--font-inter)",
-                fontWeight: 500,
-                fontSize: "clamp(52px, 15.6vw, 300px)",
-                lineHeight: 1.21,
-                paddingRight: "clamp(28px, 4vw, 80px)",
-              }}
-            >
-              Creative Developer &amp;&nbsp;&nbsp;Designer&nbsp;&nbsp;✦
-            </span>
-          ))}
+        <div
+          ref={trackRef}
+          className="animate-marquee"
+          style={{ display: "flex", width: "max-content" }}
+        >
+          {/* Copy A — measured */}
+          <span
+            ref={copy1Ref}
+            className="text-white shrink-0 whitespace-nowrap"
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 500,
+              fontSize: "clamp(52px, 15.6vw, 300px)",
+              lineHeight: 1.21,
+              paddingRight: "80px",
+            }}
+          >
+            {t("marquee")}&nbsp;&nbsp;✦
+          </span>
+          {/* Copy B — identical, seamlessly follows A */}
+          <span
+            aria-hidden
+            className="text-white shrink-0 whitespace-nowrap"
+            style={{
+              fontFamily: "var(--font-inter)",
+              fontWeight: 500,
+              fontSize: "clamp(52px, 15.6vw, 300px)",
+              lineHeight: 1.21,
+              paddingRight: "80px",
+            }}
+          >
+            {t("marquee")}&nbsp;&nbsp;✦
+          </span>
         </div>
       </div>
 
-      {/* Floating nav — always visible */}
+      {/* Floating nav */}
       <div
         className="absolute left-1/2 -translate-x-1/2"
         style={{ zIndex: 20, bottom: "clamp(14px, 2vw, 28px)" }}

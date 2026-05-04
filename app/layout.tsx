@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, DM_Sans, IBM_Plex_Mono } from "next/font/google";
+import { Inter, DM_Sans, IBM_Plex_Mono, Cormorant_Garamond } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const inter = Inter({
@@ -23,6 +24,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   display: "swap",
 });
 
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["700"],
+  variable: "--font-cormorant",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "Enes — Creative Developer & Designer",
   description:
@@ -40,11 +49,12 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${inter.variable} ${dmSans.variable} ${ibmPlexMono.variable} antialiased`}
+        className={`${inter.variable} ${dmSans.variable} ${ibmPlexMono.variable} ${cormorant.variable} antialiased`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

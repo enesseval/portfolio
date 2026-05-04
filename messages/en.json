@@ -1,7 +1,23 @@
 {
   "hero": {
-    "logo": "@ Code by Enes",
-    "tagline": "Passionate Creative Designer and Developer, dedicated to crafting innovative solutions and exceptional digital experiences through modern technologies"
+    "logoPrefix": "@ Code by",
+    "tagline": "Building AI-powered web applications & digital products — turning complex ideas into clean, modern experiences.",
+    "marquee": "Creative Developer & Designer"
+  },
+  "aboutMe": {
+    "label": "About Me",
+    "name": "Enes Seval",
+    "role": "Creative Developer & Designer",
+    "available": "Available for new projects",
+    "downloadCv": "Download CV",
+    "bio": "I'm a developer and designer based in Turkey, driven by curiosity and a deep love for building things. I specialise in AI-powered web applications and digital products — turning complex ideas into clean, intuitive experiences.",
+    "bio2": "With a sharp eye for design and solid engineering instincts, I help startups and businesses bring their digital visions to life — fast, scalable, and pixel-perfect.",
+    "stack": "Tech Stack",
+    "services": "What I Do",
+    "s1": "Full-stack web development",
+    "s2": "AI-powered applications & integrations",
+    "s3": "UI/UX design & prototyping",
+    "s4": "Freelance consulting & rapid MVPs"
   },
   "about": {
     "bio": "Driven by curiosity and a love for design, I create simple, functional, and visually striking digital experiences. As a developer, I'm always learning and exploring new ideas.",
@@ -11,6 +27,7 @@
   "works": {
     "heading": "Impressive Works",
     "description": "HERE'S A SELECTION OF PROJECTS THAT SHOWCASE MY PASSION FOR DESIGN AND DEVELOPMENT, REFLECTING CREATIVITY AND INNOVATION.",
+    "soon": "Coming soon",
     "explore": "Explore more",
     "p1": "E-Commerce Platform",
     "p2": "SaaS Dashboard",
