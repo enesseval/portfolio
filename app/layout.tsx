@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
   title: {
     default: "Enes Eval — Creative Developer & Designer",
-    template: "%s | Enes Eval",
+    template: "%s | Enes Seval",
   },
   description:
     "Creative Developer & Designer specializing in Next.js, React, and TypeScript — crafting clean, high-performance digital experiences.",
@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     "TypeScript",
     "UI Design",
     "Portfolio",
-    "Enes Eval",
+    "Enes Seval",
   ],
-  authors: [{ name: "Enes Eval", url: "https://enesseval.com" }],
-  creator: "Enes Eval",
+  authors: [{ name: "Enes Seval", url: "https://enesseval.com" }],
+  creator: "Enes Seval",
 
   alternates: {
     canonical: "https://enesseval.com",
@@ -47,8 +47,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://enesseval.com",
-    siteName: "Enes Eval",
-    title: "Enes Eval — Creative Developer & Designer",
+    siteName: "Enes Seval",
+    title: "Enes Seval — Creative Developer & Designer",
     description:
       "Creative Developer & Designer specializing in Next.js, React, and TypeScript — crafting clean, high-performance digital experiences.",
     locale: "tr_TR",
@@ -57,14 +57,14 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Enes Eval — Creative Developer & Designer",
+        alt: "Enes Seval — Creative Developer & Designer",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Enes Eval — Creative Developer & Designer",
+    title: "Enes Seval — Creative Developer & Designer",
     description:
       "Creative Developer & Designer specializing in Next.js, React, and TypeScript — crafting clean, high-performance digital experiences.",
     images: ["/og-image.jpg"],
