@@ -23,10 +23,11 @@ html {
 }
 
 body {
-  background: #0f0f0f; /* iOS uses body bg for safe-area insets — keep dark to match hero/footer */
+  background: #0f0f0f; /* iOS uses body bg for safe-area insets — dark matches hero/footer */
   color: #000000;
-  overflow-x: clip; /* clip instead of hidden — does not create a new BFC, so iOS
-                       viewport-fit=cover can properly extend body into the safe area */
+  /* overflow-x intentionally omitted: setting overflow-x: clip causes overflow-y to compute
+     to 'auto', turning body into a scroll container that clips the hero's negative-margin
+     extension above y=0. Horizontal overflow is handled inside HeroSection's marquee wrapper. */
 }
 
 /* ── Seamless marquee ──
