@@ -8,7 +8,7 @@
 
 html {
   scroll-behavior: smooth;
-  background: #0f0f0f; /* matches footer — hides iOS overscroll gap */
+  background: #0f0f0f; /* matches hero + footer — hides iOS overscroll gap at top AND bottom */
 }
 
 body {

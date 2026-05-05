@@ -25,7 +25,10 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full min-h-screen overflow-hidden flex flex-col">
+    <section
+      className="relative w-full min-h-screen overflow-hidden flex flex-col"
+      style={{ minHeight: "100dvh", background: "#0f0f0f" }}
+    >
 
       {/* Full-screen background photo */}
       <Image
