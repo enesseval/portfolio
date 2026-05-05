@@ -40,10 +40,9 @@ interface Project {
 }
 
 const projects: Project[] = [
-  { id: "p1", href: "#", image: "", name: "", description: "" },
-  { id: "p2", href: "#", image: "", name: "", description: "" },
-  { id: "p3", href: "#", image: "", name: "", description: "" },
-  { id: "p4", href: "#", image: "", name: "", description: "" },
+  { id: "p1", href: "misircafe.com.tr", image: "/misircafe.png", name: "Mısır Cafe", description: "Müşteri talebi üzerine, tanıtım sayfası, panelden menü ve etkinlik içeriğinin dinamik olarak kontrol edilebildiği bir web uygulaması." },
+  { id: "p2", href: "https://ekipman-kirala.vercel.app/dashboard", image: "/ekipman.png", name: "Ekipman Kiralama", description: "Gizlilik adına demo site linki paylaşılmıştır. Müşterinin ekipman stoğu ve takibini yönetmesi üzerine kurgulanmıştır." },
+
 ];
 
 export default function MainGrid() {
