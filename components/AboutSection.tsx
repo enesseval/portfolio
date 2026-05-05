@@ -104,7 +104,7 @@ export default function AboutSection() {
               style={{ width: 44, height: 44 }}
             >
               <svg
-                className="w-4 h-4"
+                className="icon-arrow w-4 h-4"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth={2}

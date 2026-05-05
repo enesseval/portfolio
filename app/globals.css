@@ -23,14 +23,25 @@
   backface-visibility: hidden;
 }
 
+<<<<<<< HEAD
 /* ─────────────────────────────
    ARROW BUTTON
 ───────────────────────────── */
 .arrow-btn .arrow-icon {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+=======
+/* ── Unified arrow-icon hover: spring translate top-right + scale ─────────
+   Used on every arrow/icon across the page. Apply "icon-arrow" to the SVG
+   and wrap the clickable ancestor in the "group" class (or "arrow-btn").
+   ─────────────────────────────────────────────────────────────────────── */
+.icon-arrow {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              scale   0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+>>>>>>> 0332ddcf55804e6bd2ae64cf2088864b60dd4572
 }
 
-.arrow-btn:hover .arrow-icon {
+.arrow-btn:hover .icon-arrow,
+.group:hover .icon-arrow {
   transform: translate(6px, -6px);
   scale: 2;
 }

@@ -135,7 +135,7 @@ export default function MainGrid() {
             className="flex items-center justify-center rounded-full border-2 border-black group-hover:bg-black group-hover:text-white transition-all duration-200 shrink-0"
             style={{ width: 48, height: 48 }}
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <svg className="icon-arrow w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
             </svg>
           </span>
@@ -258,7 +258,7 @@ export default function MainGrid() {
           </span>
           {/* Arrow — slides right on hover */}
           <svg
-            className="group-hover:translate-x-1 transition-transform duration-300"
+            className="icon-arrow"
             style={{ width: "clamp(16px,1.2vw,22px)", height: "clamp(16px,1.2vw,22px)" }}
             fill="none"
             stroke="currentColor"
@@ -331,7 +331,7 @@ export default function MainGrid() {
                 style={{ width: 52, height: 52 }}
               >
                 <svg
-                  className="w-4 h-4 text-white group-hover:text-black transition-colors duration-200"
+                  className="icon-arrow w-4 h-4 text-white group-hover:text-black transition-colors duration-200"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth={2}
