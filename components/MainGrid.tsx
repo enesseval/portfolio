@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import AboutSection from "./AboutSection";
 
@@ -30,54 +31,19 @@ function Cell({
   );
 }
 
-const projects = [
-  {
-    id: "p1",
-    href: "#",
-    bg: "linear-gradient(135deg,#a78bfa 0%,#f472b6 100%)",
-    content: null,
-  },
-  {
-    id: "p2",
-    href: "#",
-    bg: "linear-gradient(135deg,#38bdf8 0%,#34d399 100%)",
-    content: null,
-  },
-  {
-    id: "p3",
-    href: "#",
-    bg: "#000",
-    content: (
-      <svg
-        className="text-white/60"
-        style={{ width: "clamp(80px,10vw,180px)", height: "clamp(80px,10vw,180px)" }}
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={0.7}
-        viewBox="0 0 24 24"
-      >
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456z" />
-      </svg>
-    ),
-  },
-  {
-    id: "p4",
-    href: "#",
-    bg: "linear-gradient(135deg,#1e293b 0%,#0f172a 100%)",
-    content: (
-      <span
-        style={{
-          fontFamily: "var(--font-dm-sans)",
-          fontWeight: 300,
-          fontSize: "clamp(40px,5vw,80px)",
-          color: "rgba(255,255,255,0.8)",
-          letterSpacing: "-0.02em",
-        }}
-      >
-        Design
-      </span>
-    ),
-  },
+interface Project {
+  id: string;
+  href: string;
+  image: string;
+  name: string;
+  description: string;
+}
+
+const projects: Project[] = [
+  { id: "p1", href: "#", image: "", name: "", description: "" },
+  { id: "p2", href: "#", image: "", name: "", description: "" },
+  { id: "p3", href: "#", image: "", name: "", description: "" },
+  { id: "p4", href: "#", image: "", name: "", description: "" },
 ];
 
 export default function MainGrid() {
@@ -185,55 +151,86 @@ export default function MainGrid() {
         </p>
       </Cell>
 
-      {/* ── Rows 3-4 ── Projects (placeholder) ─────────────────── */}
+      {/* ── Rows 3-4 ── Projects ────────────────────────────────── */}
       {projects.map((p) => (
         <Cell key={p.id}>
           <div className="flex flex-col gap-5 md:gap-7">
-            {/* Placeholder card */}
-            <div
-              className="w-full flex flex-col items-center justify-center gap-3"
-              style={{
-                aspectRatio: "807 / 470",
-                borderRadius: "clamp(16px,2.2vw,42px)",
-                background: "#f5f5f5",
-                border: "1.5px dashed #d8d8d8",
-              }}
-            >
-              <svg
-                className="text-[#c8c8c8]"
-                style={{ width: "clamp(28px,2.5vw,44px)", height: "clamp(28px,2.5vw,44px)" }}
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.5}
-                viewBox="0 0 24 24"
+            {/* Image card or placeholder */}
+            {p.image ? (
+              <a
+                href={p.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative w-full block overflow-hidden"
+                style={{ aspectRatio: "807 / 470", borderRadius: "clamp(16px,2.2vw,42px)" }}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-              </svg>
-              <span
+                <Image
+                  src={p.image}
+                  alt={p.name}
+                  fill
+                  className="object-cover object-center transition-transform duration-500 hover:scale-105"
+                />
+              </a>
+            ) : (
+              <div
+                className="w-full flex flex-col items-center justify-center gap-3"
                 style={{
-                  fontFamily: "var(--font-ibm-plex-mono)",
-                  fontWeight: 400,
-                  fontSize: "clamp(11px,0.9vw,14px)",
-                  color: "#c0c0c0",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase" as const,
+                  aspectRatio: "807 / 470",
+                  borderRadius: "clamp(16px,2.2vw,42px)",
+                  background: "#f5f5f5",
+                  border: "1.5px dashed #d8d8d8",
                 }}
               >
-                {w("soon")}
-              </span>
-            </div>
-            {/* Label */}
+                <svg
+                  className="text-[#c8c8c8]"
+                  style={{ width: "clamp(28px,2.5vw,44px)", height: "clamp(28px,2.5vw,44px)" }}
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                <span
+                  style={{
+                    fontFamily: "var(--font-ibm-plex-mono)",
+                    fontWeight: 400,
+                    fontSize: "clamp(11px,0.9vw,14px)",
+                    color: "#c0c0c0",
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase" as const,
+                  }}
+                >
+                  {w("soon")}
+                </span>
+              </div>
+            )}
+            {/* Name */}
             <span
               style={{
                 fontFamily: "var(--font-inter)",
                 fontWeight: 400,
                 fontSize: "clamp(16px,2.08vw,40px)",
-                color: "#c0c0c0",
+                color: p.name ? "#000" : "#c0c0c0",
                 lineHeight: 1.2,
               }}
             >
-              {w(p.id)}
+              {p.name || w("soon")}
             </span>
+            {/* Description */}
+            {p.description && (
+              <p
+                style={{
+                  fontFamily: "var(--font-dm-sans)",
+                  fontWeight: 300,
+                  fontSize: "clamp(13px,1.05vw,20px)",
+                  color: "#666",
+                  lineHeight: 1.55,
+                }}
+              >
+                {p.description}
+              </p>
+            )}
           </div>
         </Cell>
       ))}
