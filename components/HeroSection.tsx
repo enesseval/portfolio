@@ -133,7 +133,7 @@ export default function HeroSection() {
         }}
       >
         <svg
-          className="arrow-icon text-white relative z-10"
+          className="icon-arrow text-white relative z-10"
           fill="none"
           stroke="currentColor"
           strokeWidth={1.5}
