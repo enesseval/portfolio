@@ -88,7 +88,7 @@ export default function MainGrid() {
   return (
     <section
       id="about"
-      className="w-full border-t border-l border-black/10 grid grid-cols-1 lg:grid-cols-2"
+      className="w-full border-t border-l border-black/10 grid grid-cols-1 lg:grid-cols-2 bg-white"
     >
 
       {/* ── Row 1 ── Bio | Secondary + CTA ─────────────────────── */}

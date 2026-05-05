@@ -26,17 +26,7 @@ export default function HeroSection() {
   return (
     <section
       className="relative w-full flex flex-col"
-      style={{
-        /*
-         * Pull the section up by the top safe-area inset so its background
-         * and fill image cover the notch / Dynamic Island region.
-         * On devices without a notch env() resolves to 0 — no visual change.
-         */
-        marginTop: "calc(-1 * env(safe-area-inset-top))",
-        minHeight: "100dvh",
-        background: "#0f0f0f",
-        overflowX: "clip",
-      }}
+      style={{ minHeight: "100dvh", background: "#0f0f0f", overflowX: "clip" }}
     >
 
       {/* Full-screen background photo */}

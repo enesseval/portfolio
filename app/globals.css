@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  background: #ffffff;
+  background: #0f0f0f; /* iOS uses body bg for safe-area insets — keep dark to match hero/footer */
   color: #000000;
   overflow-x: clip; /* clip instead of hidden — does not create a new BFC, so iOS
                        viewport-fit=cover can properly extend body into the safe area */
