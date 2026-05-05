@@ -105,9 +105,8 @@ const navItems: NavItem[] = [
     href: "#contact",
     hoverBg: "#1a1a1a",
     hoverIconColor: "#fff",
-    iconClass: "group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200",
     icon: (
-      <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
+      <svg className="icon-arrow w-5 h-5" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
       </svg>
     ),

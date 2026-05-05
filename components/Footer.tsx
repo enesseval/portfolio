@@ -34,14 +34,15 @@ export default function Footer() {
         <a
           href="#"
           aria-label="Back to top"
-          className="flex items-center justify-center rounded-full bg-white shrink-0 hover:scale-105 transition-transform duration-300"
+          className="group flex items-center justify-center rounded-full bg-white shrink-0"
           style={{
             width: "clamp(64px,7.4vw,142px)",
             height: "clamp(64px,7.4vw,142px)",
           }}
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
         >
           <svg
-            className="text-black"
+            className="icon-arrow text-black -rotate-45"
             fill="none"
             stroke="currentColor"
             strokeWidth={2.5}
@@ -49,7 +50,6 @@ export default function Footer() {
             style={{
               width: "clamp(22px,2.7vw,52px)",
               height: "clamp(22px,2.7vw,52px)",
-              transform: "rotate(-45deg)",
             }}
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
