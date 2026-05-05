@@ -8,7 +8,10 @@ export default function Footer() {
   return (
     <footer
       className="w-full bg-black relative overflow-hidden"
-      style={{ minHeight: "clamp(260px, 40vw, 565px)" }}
+      style={{
+        minHeight: "clamp(260px, 40vw, 565px)",
+        paddingBottom: "env(safe-area-inset-bottom)",
+      }}
     >
       {/* ── Top row: tagline + back-to-top circle ── */}
       <div
