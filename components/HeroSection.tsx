@@ -26,7 +26,19 @@ export default function HeroSection() {
   return (
     <section
       className="relative w-full flex flex-col"
-      style={{ minHeight: "100dvh", background: "#0f0f0f", overflowX: "clip" }}
+      style={{
+        /*
+         * Negative margin pulls the section (and its fill image) upward by
+         * exactly env(safe-area-inset-top) so the photo covers the notch /
+         * Dynamic Island region.  minHeight grows by the same amount so the
+         * section still fills 100dvh visually.  overflow-x is NOT set here
+         * because clip on one axis computes the other to 'auto', creating a
+         * scroll container that would re-clip the upward extension.
+         */
+        marginTop: "calc(-1 * env(safe-area-inset-top))",
+        minHeight: "calc(100dvh + env(safe-area-inset-top))",
+        background: "#0f0f0f",
+      }}
     >
 
       {/* Full-screen background photo */}
