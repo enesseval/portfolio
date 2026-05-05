@@ -8,8 +8,8 @@ import FloatingNav from "./FloatingNav";
 export default function HeroSection() {
   const t = useTranslations("hero");
 
-  const copy1Ref  = useRef<HTMLSpanElement>(null);
-  const trackRef  = useRef<HTMLDivElement>(null);
+  const copy1Ref = useRef<HTMLSpanElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const measure = () => {
@@ -27,21 +27,11 @@ export default function HeroSection() {
     <section
       className="relative w-full flex flex-col"
       style={{
-        /*
-         * Negative margin pulls the section (and its fill image) upward by
-         * exactly env(safe-area-inset-top) so the photo covers the notch /
-         * Dynamic Island region.  minHeight grows by the same amount so the
-         * section still fills 100dvh visually.  overflow-x is NOT set here
-         * because clip on one axis computes the other to 'auto', creating a
-         * scroll container that would re-clip the upward extension.
-         */
-        marginTop: "calc(-1 * env(safe-area-inset-top))",
         minHeight: "calc(100dvh + env(safe-area-inset-top))",
-        background: "#0f0f0f",
+        
       }}
     >
-
-      {/* Full-screen background photo */}
+      {/* Background */}
       <Image
         src="/medwadw.jpg"
         alt="Enes"
@@ -51,7 +41,7 @@ export default function HeroSection() {
         style={{ zIndex: 0 }}
       />
 
-      {/* Dark gradient overlay */}
+      {/* Gradient */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -61,26 +51,25 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Film grain */}
+      {/* Grain */}
       <div
         className="absolute inset-0 opacity-20 pointer-events-none"
         style={{
           zIndex: 2,
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
           backgroundSize: "128px 128px",
         }}
       />
 
-      {/* Top header — padded below the notch */}
+      {/* HEADER (SAFE AREA TEMİZLENDİ) */}
       <div
         className="relative flex items-start justify-between w-full"
         style={{
           zIndex: 10,
-          paddingTop: "calc(37px + env(safe-area-inset-top))",
+          paddingTop: "clamp(20px, 3vw, 40px)", // ❌ safe-area kaldırıldı
           paddingLeft: "clamp(12px, 1vw, 32px)",
           paddingRight: "clamp(12px, 1vw, 32px)",
-          paddingBottom: 0,
         }}
       >
         <span
@@ -116,13 +105,11 @@ export default function HeroSection() {
         </p>
       </div>
 
-      {/* Spacer */}
       <div className="flex-1" style={{ zIndex: 3 }} />
 
-      {/* ── Arrow button — desktop only, goes to #works ── */}
+      {/* Arrow */}
       <a
         href="#works"
-        aria-label="View works"
         className="arrow-btn absolute lg:flex hidden items-center justify-center rounded-full border border-white/50 transition-all duration-300 group hover:border-white hover:bg-white/5"
         style={{
           zIndex: 10,
@@ -134,6 +121,7 @@ export default function HeroSection() {
       >
         <svg
           className="icon-arrow text-white relative z-10"
+
           fill="none"
           stroke="currentColor"
           strokeWidth={1.5}
@@ -144,20 +132,19 @@ export default function HeroSection() {
         </svg>
       </a>
 
-      {/* ── Marquee ──
-           JS measures copy A's exact pixel width → sets --shift.
-           Animation translates by exactly that amount → seamless reset.
-      ── */}
+      {/* MARQUEE */}
       <div
         className="relative w-full overflow-hidden"
-        style={{ zIndex: 10, paddingBottom: "calc(clamp(60px, 8vw, 96px) + env(safe-area-inset-bottom))" }}
+        style={{
+          zIndex: 10,
+          paddingBottom: "clamp(60px, 8vw, 96px)", // ❌ safe-area kaldırıldı
+        }}
       >
         <div
           ref={trackRef}
           className="animate-marquee"
           style={{ display: "flex", width: "max-content" }}
         >
-          {/* Copy A — measured */}
           <span
             ref={copy1Ref}
             className="text-white shrink-0 whitespace-nowrap"
@@ -169,9 +156,9 @@ export default function HeroSection() {
               paddingRight: "80px",
             }}
           >
-            {t("marquee")}&nbsp;&nbsp;✦
+            {t("marquee")} ✦
           </span>
-          {/* Copy B — identical, seamlessly follows A */}
+
           <span
             aria-hidden
             className="text-white shrink-0 whitespace-nowrap"
@@ -183,15 +170,18 @@ export default function HeroSection() {
               paddingRight: "80px",
             }}
           >
-            {t("marquee")}&nbsp;&nbsp;✦
+            {t("marquee")} ✦
           </span>
         </div>
       </div>
 
-      {/* Floating nav */}
+      {/* FLOATING NAV */}
       <div
         className="absolute left-1/2 -translate-x-1/2"
-        style={{ zIndex: 20, bottom: "calc(clamp(14px, 2vw, 28px) + env(safe-area-inset-bottom))" }}
+        style={{
+          zIndex: 20,
+          bottom: "clamp(14px, 2vw, 28px)", // ❌ safe-area kaldırıldı
+        }}
       >
         <FloatingNav />
       </div>

@@ -5,14 +5,21 @@ import { useTranslations } from "next-intl";
 export default function Footer() {
   const t = useTranslations("footer");
 
+  const PAD = "clamp(40px, 6.9vw, 133px)";
+
   return (
     <footer
-      className="w-full bg-black relative overflow-hidden"
+      className="w-full bg-[#0f0f0f] relative overflow-hidden"
       style={{
         minHeight: "clamp(260px, 40vw, 565px)",
-        paddingBottom: "env(safe-area-inset-bottom)",
       }}
     >
+      <div
+          className="flex flex-col"
+          style={{ padding: `clamp(1px,1vw,120px) ${PAD}`, gap: "clamp(40px,5vw,80px)" }}
+        >
+      <div style={{ height: 1, background: "#222" }} />
+      </div>
       {/* ── Top row: tagline + back-to-top circle ── */}
       <div
         className="flex items-start justify-between"

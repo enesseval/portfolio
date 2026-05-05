@@ -1,39 +1,17 @@
 @import "tailwindcss";
 
-/* ── Safe-area spacing tokens (Tailwind v4) ──────────────────────────────
-   Generates pt-safe-top, pb-safe-bottom, pl-safe-left, pr-safe-right etc.
-   Requires viewport-fit=cover in the viewport meta to be non-zero.
-   ──────────────────────────────────────────────────────────────────────── */
-@theme {
-  --spacing-safe-top:    env(safe-area-inset-top);
-  --spacing-safe-bottom: env(safe-area-inset-bottom);
-  --spacing-safe-left:   env(safe-area-inset-left);
-  --spacing-safe-right:  env(safe-area-inset-right);
-}
-
+/* ─────────────────────────────
+   RESET
+───────────────────────────── */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-  background: #0f0f0f; /* matches hero + footer — hides iOS overscroll gap at top AND bottom */
-}
-
-body {
-  background: #0f0f0f; /* iOS uses body bg for safe-area insets — dark matches hero/footer */
-  color: #000000;
-  /* overflow-x intentionally omitted: setting overflow-x: clip causes overflow-y to compute
-     to 'auto', turning body into a scroll container that clips the hero's negative-margin
-     extension above y=0. Horizontal overflow is handled inside HeroSection's marquee wrapper. */
-}
-
-/* ── Seamless marquee ──
-   --shift is set by JS to exact pixel width of one copy.
-   Fallback -50% used during SSR (2 copies → -50% ≈ one copy width).
-   ─────────────────────────────────────────────────────────────────────── */
+/* ─────────────────────────────
+   MARQUEE
+───────────────────────────── */
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(var(--shift, -50%)); }
@@ -45,33 +23,42 @@ body {
   backface-visibility: hidden;
 }
 
+
+/* ─────────────────────────────
+   ARROW BUTTON
+───────────────────────────── */
+.arrow-btn .arrow-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
 /* ── Unified arrow-icon hover: spring translate top-right + scale ─────────
    Used on every arrow/icon across the page. Apply "icon-arrow" to the SVG
    and wrap the clickable ancestor in the "group" class (or "arrow-btn").
    ─────────────────────────────────────────────────────────────────────── */
 .icon-arrow {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-              scale   0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+              scale   0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+
 }
 
 .arrow-btn:hover .icon-arrow,
 .group:hover .icon-arrow {
   transform: translate(6px, -6px);
-  scale: 2;
+  scale: 1.5;
 }
 
-/* Download arrow: overrides direction to go straight down */
-.group:hover .icon-arrow-down {
-  transform: translate(0, 6px);
-}
 
-.font-inter    { font-family: var(--font-inter),          sans-serif; }
-.font-dm-sans  { font-family: var(--font-dm-sans),        sans-serif; }
-.font-ibm-mono { font-family: var(--font-ibm-plex-mono),  monospace;  }
+/* ─────────────────────────────
+   FONT HELPERS
+───────────────────────────── */
+.font-inter    { font-family: var(--font-inter), sans-serif; }
+.font-dm-sans  { font-family: var(--font-dm-sans), sans-serif; }
+.font-ibm-mono { font-family: var(--font-ibm-plex-mono), monospace; }
 
-/* ── Metallic gold shimmer ── */
+/* ─────────────────────────────
+   GOLD TEXT EFFECT
+───────────────────────────── */
 @keyframes gold-sweep {
-  0%   { background-position: 0%   center; }
+  0%   { background-position: 0% center; }
   100% { background-position: 200% center; }
 }
 
@@ -80,20 +67,20 @@ body {
   font-style: italic;
   font-weight: 900;
   letter-spacing: 0.1em;
-  text-align: center;
 
   background: linear-gradient(
     90deg,
-    #7a5c1e 0%,    /* dark bronze   */
-    #c8922a 15%,   /* deep amber    */
-    #e8bf6a 30%,   /* warm gold     */
-    #fdf0c0 45%,   /* bright cream  */
-    #ffffff 50%,   /* pure white    */
-    #fdf0c0 55%,   /* bright cream  */
-    #e8bf6a 70%,   /* warm gold     */
-    #c8922a 85%,   /* deep amber    */
-    #7a5c1e 100%   /* dark bronze   */
+    #7a5c1e 0%,
+    #c8922a 15%,
+    #e8bf6a 30%,
+    #fdf0c0 45%,
+    #ffffff 50%,
+    #fdf0c0 55%,
+    #e8bf6a 70%,
+    #c8922a 85%,
+    #7a5c1e 100%
   );
+
   background-size: 200% auto;
   animation: gold-sweep 4s linear infinite;
 
