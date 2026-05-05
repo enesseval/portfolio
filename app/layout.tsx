@@ -1,5 +1,4 @@
-import type { Metadata } from "next";
-import type { Viewport } from 'next/app';
+import type { Metadata, Viewport } from "next";
 import { Inter, DM_Sans, IBM_Plex_Mono, Cormorant_Garamond } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
