@@ -100,6 +100,7 @@ export default function AboutSection() {
             className="group flex items-center gap-3 self-start"
           >
             <span
+              
               className="flex items-center justify-center rounded-full border-2 border-black group-hover:bg-black group-hover:text-white transition-all duration-200 shrink-0"
               style={{ width: 44, height: 44 }}
             >
