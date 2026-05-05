@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* ── Safe-area spacing tokens (Tailwind v4) ──────────────────────────────
+   Generates pt-safe-top, pb-safe-bottom, pl-safe-left, pr-safe-right etc.
+   Requires viewport-fit=cover in the viewport meta to be non-zero.
+   ──────────────────────────────────────────────────────────────────────── */
+@theme {
+  --spacing-safe-top:    env(safe-area-inset-top);
+  --spacing-safe-bottom: env(safe-area-inset-bottom);
+  --spacing-safe-left:   env(safe-area-inset-left);
+  --spacing-safe-right:  env(safe-area-inset-right);
+}
+
 * {
   margin: 0;
   padding: 0;

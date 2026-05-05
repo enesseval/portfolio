@@ -140,7 +140,7 @@ export default function HeroSection() {
       ── */}
       <div
         className="relative w-full overflow-hidden"
-        style={{ zIndex: 10, paddingBottom: "clamp(60px, 8vw, 96px)" }}
+        style={{ zIndex: 10, paddingBottom: "calc(clamp(60px, 8vw, 96px) + env(safe-area-inset-bottom))" }}
       >
         <div
           ref={trackRef}
@@ -181,7 +181,7 @@ export default function HeroSection() {
       {/* Floating nav */}
       <div
         className="absolute left-1/2 -translate-x-1/2"
-        style={{ zIndex: 20, bottom: "clamp(14px, 2vw, 28px)" }}
+        style={{ zIndex: 20, bottom: "calc(clamp(14px, 2vw, 28px) + env(safe-area-inset-bottom))" }}
       >
         <FloatingNav />
       </div>
